@@ -1,19 +1,18 @@
 #include <stdio.h>
-#include <stdlib.h>
 /**
  * main - Entry point
- * Return: Always 0 (seccess)
+ * Return: 0
  */
 int main(void)
 {
-	char chr = 'a';
+	char m;
 
-	while (chr <= 'z')
-	{
-		if ((chr != 'q' && chr != 'e')&& c <= 'z'))
-			putchar(chr);
-		chr++;
-	}
-	putchar('\n');
+	m = 'a';
+	while
+		(m <= 'z') {
+			if ((m != 'q' && m != 'e') && m <= 'z')
+				putchar(m);
+			m++;
+		}
 	return (0);
 }
