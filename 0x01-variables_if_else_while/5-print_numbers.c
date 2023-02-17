@@ -2,11 +2,13 @@
 #include <stdlib.h>
 /**
  * main - Entry
- * Return : 0
+ * Return: 0
  */
 int main(void)
 {
-	for (int i = 0; i <= 10; i++)
+	int i = 0;
+
+	for ( ; i <= 10; i++)
 	{
 		printf("%d\n", i);
 	}
