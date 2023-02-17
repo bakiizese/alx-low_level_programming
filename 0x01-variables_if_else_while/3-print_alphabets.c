@@ -1,33 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * main - Entry
- * Return: 0
+ * main - Entry point
+ * Return: Always 0 (seccess)
  */
 int main(void)
 {
-	int chr = 96;
-	int chr2 = 64;
-	int i = 0;
-	int j = 0;
+	char i = 'a';
+	char j = 'A';
 
-	while (i < 26)
+	while (i <= 'z')
 	{
-		chr++;
 		i++;
-
-		char alpha = chr;
-
-		putchar(alpha);
+		putchar(i);
 	}
-	while (j < 26)
+	while (j <= 'Z')
 	{
-		chr2++;
 		j++;
-
-		char Alpha = chr2;
-
-		putchar(Alpha);
+		putchar(j);
 	}
 	putchar('\n');
 	return (0);
