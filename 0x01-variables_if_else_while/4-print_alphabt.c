@@ -2,7 +2,7 @@
 #include <stdlib.h>
 /**
  * main - Entry point
- * Return: 0
+ * Return: Always 0 (seccess)
  */
 int main(void)
 {
@@ -10,11 +10,8 @@ int main(void)
 
 	while (chr <= 'z')
 	{
-		if (chr == 'q' || chr == 'e')
-		{
-			continue;
-		}
-		putchar(chr);
+		if ((chr != 'q' && chr != 'e')&& c <= 'z'))
+			putchar(chr);
 		chr++;
 	}
 	putchar('\n');
