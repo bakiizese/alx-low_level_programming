@@ -17,8 +17,8 @@ int main(void)
 		{
 			if (i != c && i < c)
 			{
-				putchar('0' + i);
-				putchar('0' + c);
+				putchar(i + '0');
+				putchar(c + '0');
 
 				if (c + i != 17)
 				{
@@ -26,9 +26,9 @@ int main(void)
 					putchar(' ');
 				}
 			}
-			i++;
+			c++;
 		}
-		c++;
+		i++;
 	}
 	putchar('\n');
 	return (0);
