@@ -6,15 +6,10 @@
  */
 int main(void)
 {
-	int chr = 96;
-
-	for (int i = 0; i < 26; i++)
+	char i = 'a';
+	for ( ; i <= 'z'; i++)
 	{
-		chr++;
-
-		char alpha = chr;
-
-		putchar(alpha);
+		putchar(i);
 	}
 	putchar('\n');
 	return (0);
