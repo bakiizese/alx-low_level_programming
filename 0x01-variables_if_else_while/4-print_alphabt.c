@@ -1,24 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * main - Entry
+ * main - Entry point
  * Return: 0
  */
 int main(void)
 {
-	int chr = 96;
+	char chr = 'a';
 
-	for (int i = 0; i < 26; i++)
+	while (chr <= 'z')
 	{
-		chr++;
-
-		char alpha = chr;
-
-		if (alpha == 'q' || alpha == 'e')
+		if (chr == 'q' || chr == 'e')
 		{
 			continue;
 		}
-		putchar(alpha);
+		putchar(chr);
+		chr++;
 	}
 	putchar('\n');
 	return (0);
