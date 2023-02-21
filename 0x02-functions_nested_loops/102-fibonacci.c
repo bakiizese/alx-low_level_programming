@@ -13,7 +13,7 @@ int main(void)
 		if (a == 0)
 			printf("%ld", c);
 		else if (a == 1)
-			printf("%d", b);
+			printf("%ld", b);
 		else
 		{
 			b += c;
