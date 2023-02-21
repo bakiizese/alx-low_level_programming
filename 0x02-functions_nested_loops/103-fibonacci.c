@@ -14,7 +14,7 @@ int main(void)
 		if (b % 2 == 0)
 		sum += b;
 		c = b - c;
-		++i;
+		++a;
 	}
 	printf("%ld\n", sum);
 	return (0);
