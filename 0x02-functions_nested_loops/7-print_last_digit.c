@@ -1,5 +1,8 @@
 #include "main.h"
-
+/**
+ * print_last_digit - digits
+ * Return: the last digit
+ */
 int print_last_digit(int n)
 {
 	int last = n % 10;
