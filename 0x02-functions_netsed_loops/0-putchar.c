@@ -1,17 +1,18 @@
-#include <stdio.h>
+#include "main.h"
 /**
- * main - Entry
- * Return: 0
+ * main - entry
+ * return: 0
  */
 int main(void)
 {
-	char chr[] = "_putchar";
-	int count = 0;
-
-	for (; count < 8; count++)
-	{
-		putchar(chr[count]);
-	}
-	putchar('\n');
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+        _putchar('h');
+        _putchar('a');
+        _putchar('t');
+	_putchar('\n');
 	return (0);
 }
