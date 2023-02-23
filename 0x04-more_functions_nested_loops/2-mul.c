@@ -1,5 +1,6 @@
 #include "main.h"
-/** mul - multiple
+/** 
+ * mul - multiple
  * @a: var
  * @b: var
  * Return: the mul of a and b
