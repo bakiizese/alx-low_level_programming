@@ -24,21 +24,21 @@ int main(void)
 		}
 		else if (i % 5 == 0)
 		{
-			printf("Buzz");
-			printf(" ");
+			if (i == 100)
+			{
+				printf("Buzz");
+			}
+			else
+			{
+				printf("Buzz");
+				printf(" ");
+			}
 			continue;
 		}
 		else
 		{
-			if (i == 100)
-			{
-				printf("%d", i);
-			}
-			else
-			{
-				printf("%d", i);
-				printf(" ");
-			}
+			printf("%d", i);
+			printf(" ");
 		}
 	}
 	printf("\n");
