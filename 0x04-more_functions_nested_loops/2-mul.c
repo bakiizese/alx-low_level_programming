@@ -1,5 +1,5 @@
 #include "main.h"
-/** 
+/**
  * mul - multiple
  * @a: var
  * @b: var
