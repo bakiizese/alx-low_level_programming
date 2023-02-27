@@ -6,9 +6,12 @@
  */
 void rev_string(char *s)
 {
-	reverse(char *s);
-}
-int reverse(char *d)
-{
-	return (*d);
+	int i, j;
+	int n = strlen(s);
+
+	for (i = n; i >= 0; i++)
+	{
+		j = s[n];
+		_putchar(j);
+	}
 }
