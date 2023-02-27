@@ -6,8 +6,8 @@
  */
 void rev_string(char *s)
 {
-	int i, j;
-	int n = strlen(s);
+	int i = 0, j = 0;
+	int n = );
 
 	for (i = n; i >= 0; i++)
 	{
