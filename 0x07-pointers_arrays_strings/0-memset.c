@@ -1,13 +1,19 @@
 #include "main.h"
-
+/**
+ * _memset - entry
+ * @s: var
+ * @b: var
+ * @n: var
+ * Return: s
+ */
 char *_memset(char *s, char b, unsigned int n)
 {
-	unsigned int i;
-	unsigned char *mem = s, value = c;
+	int i;
 
-	for (i  = 0; i < n; i++)
+	for (i  = 0; n > 0; i++)
 	{
-		mem[i] = value;
+		s[i] = b;
+		n--;
 	}
-	return (mem);
+	return (s);
 }
