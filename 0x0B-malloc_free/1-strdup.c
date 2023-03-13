@@ -42,7 +42,8 @@ char *_strdup(char *str)
 {
 	int c = count(str) + 1;
 	char *ptr = (char *)malloc(c * sizeof(char));
-
+	if (str == NULL)
+		_putchar("failed to allocate memory");
 	if (ptr == NULL)
 		return (NULL);
 	_strcpy(ptr, str);
