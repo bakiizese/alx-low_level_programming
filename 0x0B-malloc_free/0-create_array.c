@@ -1,10 +1,16 @@
 #include "main.h"
 #include <stdlib.h>
+/**
+ * create_array - entry
+ * @size: var
+ * @c: var
+ * Return: ptr or NULL
+ */
 char *create_array(unsigned int size, char c)
 {
 	unsigned int i;
-
 	char *ptr = (char *)malloc(size * sizeof(char));
+
 	if (size == 0)
 		return (NULL);
 	if (ptr == NULL)
@@ -13,5 +19,5 @@ char *create_array(unsigned int size, char c)
 	{
 		*(ptr + i) = c;
 	}
-	return ptr;
+	return (ptr);
 }
