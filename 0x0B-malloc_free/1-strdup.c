@@ -1,5 +1,10 @@
 #include "main.h"
 #include <stdlib.h>
+/**
+ * count - entry
+ * @i: var
+ * Return: j
+ */
 int count(char *i)
 {
 	int j = 0;
@@ -10,16 +15,18 @@ int count(char *i)
 	}
 	return (j);
 }
+/**
+ * _strdup - entry
+ * @str: var
+ * Return: ptr
+ */
 char *_strdup(char *str)
 {
 	int c = count(str);
 	char *ptr = (char *)malloc(c * sizeof(char));
 	int i;
+
 	if (str == NULL)
-		return (NULL);
-	if (sizeof(ptr) < sizeof(str))
-		return (NULL);
-	if (ptr == NULL)
 		return (NULL);
 	for (i = 0; i < c; i++)
 	{
