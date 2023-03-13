@@ -39,12 +39,12 @@ char *str_concat(char *s1, char *s2)
 	{
 		*(ptr + i) = *(s1 + i);
 	}
-	for (j = 0; j < c2; j++)
+	for (j = 0; j < (c2 + 1); j++)
 	{
 		*(ptr + i) = *(s2 + j);
 		i++;
 	}
-	if (ptr == 0)
+	if (ptr == NULL)
 		return (NULL);
 	return (ptr);
 }
