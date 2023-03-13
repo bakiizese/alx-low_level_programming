@@ -40,12 +40,14 @@ char *_strcpy(char *ptr, char *str)
  */
 char *_strdup(char *str)
 {
-	unsigned int c = count(str) + 1;
-	char *ptr = (char *)malloc(c * sizeof(char));
+	unsigned int c;
+	char *ptr;
 
 	if (str == 0)
 		return (NULL);
-	if (ptr == NULL)
+	c = count(str) + 1;
+	ptr = (char *)malloc(c * sizeof(char));
+	if (ptr == 0)
 		return (NULL);
 	_strcpy(ptr, str);
 	return (ptr);
