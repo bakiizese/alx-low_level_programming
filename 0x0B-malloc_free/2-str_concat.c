@@ -23,15 +23,16 @@ int count(char *i)
  */
 char *str_concat(char *s1, char *s2)
 {
-	int c1 = count(s1) + 1;
-	int c2 = count(s2) + 1;
+	int c1;
+	int c2;
 	int i, j;
-	char *ptr = (char *)malloc((c1 + c2) * sizeof(char));
+	char *ptr;
 
-	if (s2 == 0)
+	if (s2 == NULL)
 		return (" ");
-	if (ptr == NULL)
-		return (NULL);
+	c1 = count(s1) + 1;
+	c2 = count(s2) + 1;
+	ptr = (char *)malloc((c1 + c2) * sizeof(char));
 	for (i = 0; s1[i] != '\0'; i++)
 	{
 		*(ptr + i) = *(s1 + i);
@@ -41,5 +42,7 @@ char *str_concat(char *s1, char *s2)
 		*(ptr + i) = *(s2 + j);
 		i++;
 	}
+	if (ptr == NULL)
+		return (NULL);
 	return (ptr);
 }
