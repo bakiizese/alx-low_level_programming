@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * @strl - entry
+ * strl - entry
  * @str: var
  * Return: i
  */
