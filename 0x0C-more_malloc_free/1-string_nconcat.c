@@ -23,7 +23,7 @@ unsigned int strl(char *str)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
-	unsigned int i, j;
+	unsigned int i;
 
 	if (s1 == NULL)
 		s1 = " ";
@@ -36,11 +36,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (0);
 	for (i = 0; i < strl(s1); i++)
 		ptr[i] = s1[i];
-	for (j = 0; i <= strl(s2); j++)
-	{
-		ptr[i] = s2[j];
-		i++;
-	}
+	for (; i < (strl(s1) + n); i++)
+		ptr[i] = s2[i - strl(s1)];
 	ptr[i] = '\0';
 	return (ptr);
 }
