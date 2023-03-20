@@ -24,7 +24,7 @@ char *cpy(char *cp, char *str)
 {
 	int i;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i]; i++)
 		cp[i] = str[i];
 	cp[i] = '\0';
 	return (cp);
