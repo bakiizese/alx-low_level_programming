@@ -3,4 +3,4 @@
 
 #define SIZE 1024;
 
-#define /*SIZE_H*/
+#endif /*SIZE_H*/
