@@ -24,7 +24,7 @@ char *cpy(char *cp, char *str)
 {
 	int i;
 
-	for (i = 0; str[i]; i++)
+	for (i = 0; str[i] != '\0'; i++)
 		cp[i] = str[i];
 	cp[i] = '\0';
 	return (cp);
@@ -64,4 +64,3 @@ dog_t *new_dog(char *name, float age, char *owner)
 	newdog->owner = cpy(newdog->owner, owner);
 	return (newdog);
 }
-
