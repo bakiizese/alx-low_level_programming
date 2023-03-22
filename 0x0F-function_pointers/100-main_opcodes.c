@@ -26,15 +26,15 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	arg = (char *)main;
 	for (i = 0; i < bytes; i++)
 	{
-		if (i == bytes - 1)
+		printf("%02hhx\n", *((char *)main + i));
+		if (i < bytes - 1)
 		{
-			printf("%02hhx\n", arg[i]);
-			break;
+			printf(" ");
 		}
-		printf("%02hhx\n", arg[i]);
+		else
+			printf("\n");
 	}
 	return (0);
 }
