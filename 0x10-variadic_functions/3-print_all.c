@@ -1,10 +1,14 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
-
+/**
+ * print_all - entry
+ * @format: var
+ */
 void print_all(const char * const format, ...)
 {
-	int i = 0, j = 0;
+	int i = 0, j;
+	int a = 0;
 	va_list ap;
 	char *str;
 	const char args[] = "cifs";
@@ -13,28 +17,28 @@ void print_all(const char * const format, ...)
 
 	while (format && format[i])
 	{
-		while(args[j])
+		j = 0;
+		while (args[j])
 		{
-			if (format[i] == args[j])
+			if (format[i] == args[j] && a)
 			{
 				printf(", ");
 				break;
-			}
-			j++;
+			} j++;
 		}
 		switch (format[i])
 		{
 			case 'c':
-				printf("%c", va_arg(ap, int));
+				printf("%c", va_arg(ap, int)), a = 1;
 				break;
 			case 'i':
-				printf("%d", va_arg(ap, int));
+				printf("%d", va_arg(ap, int)), a = 1;
 				break;
 			case 'f':
-				printf("%f", va_arg(ap, double));
+				printf("%f", va_arg(ap, double)), a = 1;
 				break;
 			case 's':
-				str = va_arg(ap, char *);
+				str = va_arg(ap, char *), a = 1;
 				if (str)
 					printf("%s", str);
 				else
@@ -42,6 +46,5 @@ void print_all(const char * const format, ...)
 				break;
 		} i++;
 	}
-	printf("\n");
-	va_end(ap);
+	printf("\n"), va_end(ap);
 }
