@@ -12,8 +12,8 @@ size_t listint_loop2(const listint_t *head)
 
 	if (head == NULL || head->next == NULL)
 		return (0);
-	j = (head->next)->next;
 	i = head->next;
+	j = (head->next)->next;
 	while (j)
 	{
 		if (i == j)
@@ -51,22 +51,20 @@ size_t free_listint_safe(listint_t **h)
 	j = listint_loop2(*h);
 	if (j == 0)
 	{
-		while (h != NULL && *h != NULL)
+	for (; h != NULL && *h != NULL; j++)
 		{
 			fr = (*h)->next;
 			free(*h);
 			*h = fr;
-			j++;
 		}
 	}
 	else
 	{
-		while (i < j)
+		for (i = 0; i < j; i++)
 		{
 			fr = (*h)->next;
 			free(*h);
 			*h = fr;
-			i++;
 		}
 		*h = NULL;
 	}
