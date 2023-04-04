@@ -1,17 +1,18 @@
 #include "lists.h"
-
+/**
+ * get_nodeint_at_index - entry
+ * @head: pointer to head
+ * @index: index
+ * Return: head
+ */
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	listint_t *node;
-	int count = 0;
+	unsigned int count;
 
-	while(head)
+	while (count < index)
 	{
-		node = *head;
-		if (count == 5)
-			return (node->n);
-		*head = (*head)->next;
+		head = head->next;
 		count++;
 	}
-	return (0);
+	return (head);
 }
