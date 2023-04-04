@@ -1,11 +1,11 @@
 #include "lists.h"
 #include <stdio.h>
 /**
- * listint_loop1 - entry
+ * listint_loop2 - entry
  * @head: pointet to head
- * Return: node
+ * Return: 0 or node
  */
-size_t listint_loop1(const listint_t *head)
+size_t listint_loop2(const listint_t *head)
 {
 	const listint_t *i, *j;
 	size_t node = 1;
@@ -26,7 +26,6 @@ size_t listint_loop1(const listint_t *head)
 				node++;
 			}
 			i = i->next;
-
 			while (i != j)
 			{
 				i = i->next;
@@ -40,22 +39,23 @@ size_t listint_loop1(const listint_t *head)
 	return (0);
 }
 /**
- * print_listint_safe - entry
- * @head: pointer to head
+ * free_listint_safe - entry
+ * @h: pointet to pointer
  * Return: j
  */
-size_t print_listint_safe(const listint_t *head)
+size_t free_listint_safe(listint_t **h)
 {
+	listint_t *fr;
 	size_t i, j;
 
-	i = 0;
-	j = listint_loop1(head);
+	j = listint_loop2(*h);
 	if (j == 0)
 	{
-		while (head)
+		while (h != NULL && *h != NULL)
 		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
+			fr = (*h)->next;
+			free(*h);
+			*h = fr;
 			j++;
 		}
 	}
@@ -63,11 +63,13 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		while (i < j)
 		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
+			fr = (*h)->next;
+			free(*h);
+			*h = fr;
 			i++;
 		}
-		printf("-> [%p] %d\n", (void *)head, head->n);
+		*h = NULL;
 	}
+	h = NULL;
 	return (j);
 }
