@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * flip-bits - entry
+ * flip_bits - entry
  * @n: var
  * @m: var
  * Return: bit
