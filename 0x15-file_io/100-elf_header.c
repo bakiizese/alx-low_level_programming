@@ -110,18 +110,26 @@ void Type(unsigned int e_type, unsigned char *j)
 	printf(" Type: ");
 	if (j[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
-	if (e_type == ET_REL)
-		printf("REL (RELOCATABLE FILE)\n");
-	else if (e_type == ET_EXEC)
-		printf("EXEC (EXECUTABLE FILE)\n");
-	else if (e_type == ET_DYN)
-		printf("DYN (SHARED OBJECT FILE)\n");
-	else if (e_type == ET_CORE)
-		printf("CORE (CORE FILE)\n");
-	else if (e_type == ET_NONE)
-		printf("NONE (NONE)\n");
-	else
-		printf("unknown: %x\n", e_type);
+	switch (e_type)
+	{
+		case ET_REL:
+			printf("REL (RELOCATABLE FILE)\n");
+			break;
+		case ET_EXEC:
+			printf("EXEC (EXECUTABLE FILE)\n");
+			break;
+		case ET_DYN:
+			printf("DYN (SHARED OBJECT FILE)\n");
+			break;
+		case ET_CORE:
+			printf("CORE (CORE FILE)\n");
+			break;
+		case ET_NONE:
+			printf("NONE (NONE)\n");
+			break;
+		default:
+			printf("unknown: %x\n", e_type);
+	}
 }
 /**
  * Entry - entry
