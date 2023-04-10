@@ -161,7 +161,7 @@ void checker(unsigned char *i)
 {
 	int j = 0;
 
-	while (J < 4)
+	while (j < 4)
 	{
 		if (i[j] != 127 && i[j] != 'E' && i[j] != 'L' && i[j] != 'F')
 		{
@@ -177,7 +177,7 @@ void checker(unsigned char *i)
  */
 void Abi(unsigned char *j)
 {
-	printf(" ABI VERSION: %d\n", j[EI_ABIVERSION);
+	printf(" ABI VERSION: %d\n", j[EI_ABIVERSION]);
 }
 /**
  * main - entry
