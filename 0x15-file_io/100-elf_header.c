@@ -154,6 +154,32 @@ void closed(int j)
 	}
 }
 /**
+ * checker - entry
+ * @i: var
+ */
+void checker(unsigned char *i)
+{
+	int j = 0;
+
+	while (J < 4)
+	{
+		if (i[j] != 127 && i[j] != 'E' && i[j] != 'L' && i[j] != 'F')
+		{
+			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
+			exit(98);
+		}
+		j++;
+	}
+}
+/**
+ * Abi - entry
+ * @j: var
+ */
+void Abi(unsigned char *j)
+{
+	printf(" ABI VERSION: %d\n", j[EI_ABIVERSION);
+}
+/**
  * main - entry
  * @argc: var
  * @argv: var
@@ -162,7 +188,7 @@ void closed(int j)
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
-	int op, re, checker = 0;
+	int op, re;
 
 	op = open(argv[1], O_RDONLY);
 	if (op == -1)
@@ -186,22 +212,12 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 
-	while (checker < 4)
-	{
-		if (header->e_ident[checker] != 127 && header->e_ident[checker] != 'E' && header->e_ident[checker] != 'L' && header->e_ident[checker] != 'F')
-		{
-			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
-			exit(98);
-		}
-		checker++;
-	}
 	Magic(header->e_ident);
 	Class(header->e_ident);
 	Data(header->e_ident);
 	Vers(header->e_ident);
 	Osa(header->e_ident);
-	printf(" ABI Version: ");
-	printf("%d", header->e_ident[EI_ABIVERSION]);
+	Abi(header->e_ident);
 	Type(header->e_type, header->e_ident);
 	Entry(header->e_entry, header->e_ident);
 
