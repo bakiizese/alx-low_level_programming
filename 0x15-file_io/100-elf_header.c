@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * Majic - entry
+ * Magic - entry
  * @j: var
  */
 void Magic(unsigned char *j)
@@ -186,7 +186,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 
-	while(checker < 4)
+	while (checker < 4)
 	{
 		if (header->e_ident[checker] != 127 && header->e_ident[checker] != 'E' && header->e_ident[checker] != 'L' && header->e_ident[checker] != 'F')
 		{
@@ -201,7 +201,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	Vers(header->e_ident);
 	Osa(header->e_ident);
 	printf(" ABI Version: ");
-	printf("%d", header->e_ident[EI_ABIVERSION]);	
+	printf("%d", header->e_ident[EI_ABIVERSION]);
 	Type(header->e_type, header->e_ident);
 	Entry(header->e_entry, header->e_ident);
 
