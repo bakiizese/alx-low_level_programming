@@ -1,3 +1,3 @@
 #!/usr/bin/bash
-gcc -Wall -c -fPIC *.c
-gcc  -shared *.o  -o liball.so
+gcc -Wall -Werror -Wextra -std=gnu89 -fPIC -c *.o
+gcc -shared -o liball.so *.o
