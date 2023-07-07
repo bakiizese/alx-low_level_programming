@@ -1,1 +1,0 @@
-pinters and arrays

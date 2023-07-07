@@ -1,1 +1,0 @@
-dinamic lib in c
