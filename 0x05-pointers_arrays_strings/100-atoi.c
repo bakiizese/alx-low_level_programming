@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * _atoi - entry
  * @s: var
@@ -7,7 +8,7 @@
 int _atoi(char *s)
 {
 	int i = 0, n = 0;
-	int sign = 0;
+	int sign = 1;
 
 	while ((s[i] < '0' || s[i] > '9') && s[i] != 0)
 	{
