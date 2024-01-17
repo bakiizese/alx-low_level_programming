@@ -1,5 +1,4 @@
 #include "search_algos.h"
-int power(int base, int exponent);
 int b_search(int *array, int be, int en, int value);
 /**
  * exponential_search - entry
@@ -10,44 +9,20 @@ int b_search(int *array, int be, int en, int value);
  */
 int exponential_search(int *array, size_t size, int value)
 {
-	int i = 0;
-	int beg = power(2, i);
-	int end = power(2, (i + 1));
-	int siz = size - 1;
+	size_t i = 0, right;
 
 	if (array == NULL)
 		return (-1);
-	while (end <= siz)
-	{
-		end = power(2, (i + 1));
-		beg = power(2, i);
-		printf("Value checked array[%d] = [%d]\n", beg, array[beg]);
-		if (array[beg] == value)
-			return (beg);
-		if (value <= array[end] && value >= array[beg])
-		{
-			printf("Value found between indexes [%d] and [%d]\n", beg, end);
-			return (b_search(array, beg, end, value));
-		}
-		i++;
-	}
-	printf("Value found between indexes [%d] and [%d]\n", beg, (end - 1));
-	return (b_search(array, beg, end - 1, value));
-}
-/**
- * power - cal pow of
- * @base: base of pow
- * @exponent: var
- * Return: Result
- */
-int power(int base, int exponent)
-{
-	int result = 1;
-	int i;
 
-	for (i = 0; i < exponent; i++)
-		result *= base;
-	return (result);
+	if (array[0] != value)
+	{
+		for (i = 1; i < size && array[i] <= value; i *= 2)
+			printf("Value checked array [%ld] = [%d]\n", i, array[i]);
+	}
+
+	right = i < size ? i : size - 1;
+	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, right);
+	return (b_search(array, i / 2, right, value));
 }
 /**
  * b_search - entry
