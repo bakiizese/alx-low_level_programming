@@ -1,64 +1,59 @@
 #include "search_algos.h"
-
+int rec_bin(int *array, int beg, int end, int mid, int value);
 /**
- * rec_search - searches for a value in an array of
- * integers using the Binary search algorithm
- *
- *
- * @array: input array
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
- */
-int rec_search(int *array, size_t size, int value)
-{
-	size_t half = size / 2;
-	size_t i;
-
-	if (array == NULL || size == 0)
-		return (-1);
-
-	printf("Searching in array");
-
-	for (i = 0; i < size; i++)
-		printf("%s %d", (i == 0) ? ":" : ",", array[i]);
-
-	printf("\n");
-
-	if (half && size % 2 == 0)
-		half--;
-
-	if (value == array[half])
-	{
-		if (half > 0)
-			return (rec_search(array, half + 1, value));
-		return ((int)half);
-	}
-
-	if (value < array[half])
-		return (rec_search(array, half + 1, value));
-
-	half++;
-	return (rec_search(array + half, size - half, value) + half);
-}
-
-/**
- * advanced_binary - calls to rec_search to return
- * the index of the number
- *
- * @array: input array
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
+ * advanced_binary - entry search algo
+ * @array: the array
+ * @size: size of array
+ * @value: value to be searched
+ * Return: -1 or value index
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	int index;
+	int beg = 0;
+	int end = size - 1;
+	int mid = 0;
 
-	index = rec_search(array, size, value);
-
-	if (index >= 0 && array[index] != value)
+	if (array == NULL)
 		return (-1);
+	return (rec_bin(array, beg, end, mid, value));
+}
+/**
+ * rec_bin - recursion func
+ * @array: the array
+ * @beg: beg of array
+ * @mid: mid of array
+ * @end: end of array
+ * @value: value to be searched
+ * Return: -1 or value index
+ */
+int rec_bin(int *array, int beg, int end, int mid, int value)
+{
+	int vl = beg;
 
-	return (index);
+	mid = (beg + end) / 2;
+	if (end < beg && value > 0)
+	{
+		return (-1);
+	}
+	printf("Searching in array: ");
+	for (; vl <= end; vl++)
+	{
+		printf("%d", array[vl]);
+		if (vl >= end)
+			continue;
+		printf(", ");
+	}
+	printf("\n");
+	if (array[mid] == value)
+	{
+		if (array[mid - 1] == value)
+			end = mid;
+		else
+			return (mid);
+	}
+	else if (value < array[mid])
+		end = mid - 1;
+	else if (value > array[mid])
+		beg = mid + 1;
+	return (rec_bin(array, beg, end, mid, value));
 }
