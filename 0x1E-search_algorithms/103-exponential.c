@@ -1,5 +1,5 @@
 #include "search_algos.h"
-#include <math.h>
+int power(int base, int exponent);
 int b_search(int *array, int be, int en, int value);
 /**
  * exponential_search - entry
@@ -11,14 +11,14 @@ int b_search(int *array, int be, int en, int value);
 int exponential_search(int *array, size_t size, int value)
 {
 	int i = 0;
-	int beg = pow(2, i);
-	int end = pow(2, (i + 1));
+	int beg = power(2, i);
+	int end = power(2, (i + 1));
 	int siz = size - 1;
 
 	while (end <= siz)
 	{
-		end = pow(2, (i + 1));
-		beg = pow(2, i);
+		end = power(2, (i + 1));
+		beg = power(2, i);
 		printf("Value checked array[%d] = [%d]\n", beg, array[beg]);
 		if (value <= array[end] && value >= array[beg])
 		{
@@ -29,6 +29,21 @@ int exponential_search(int *array, size_t size, int value)
 	}
 	printf("Value found between indexes [%d] and [%d]\n", beg, (end - 1));
 	return (b_search(array, beg, end - 1, value));
+}
+/**
+ * power - cal pow of
+ * @base: base of pow
+ * @exponent: var
+ * Return: Result
+ */
+int power(int base, int exponent)
+{
+	int result = 1;
+	int i;
+
+	for (i = 0; i < exponent; i++)
+		result *= base;
+	return (result);
 }
 /**
  * b_search - entry
