@@ -10,7 +10,7 @@ int ret(int *array, size_t end, size_t i);
  */
 int jump_search(int *array, size_t size, int value)
 {
-	size_t m = sqrt(size);
+	size_t m = (int)sqrt((double)size);
 	size_t beg = 0;
 	size_t end = size - 1;
 	size_t mid = m;
