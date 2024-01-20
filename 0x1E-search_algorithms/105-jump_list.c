@@ -21,7 +21,8 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 
 	if (list->n == value)
 	{
-		printf("Value found between indexes [%ld] and [%ld]\n", beg->index, list->index);
+		printf("Value found between indexes [%ld] and [%ld]\n",
+				beg->index, list->index);
 		return (lin(mid, end, value));
 	}
 	while (mid->index != sq)
