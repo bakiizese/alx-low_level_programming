@@ -1,84 +1,46 @@
 #include "search_algos.h"
 #include <math.h>
-listint_t *lin(listint_t *mid, size_t end, int value);
+
 /**
- * jump_list - entry
- * @list: pointer to list
- * @size: size of list
- * @value: value to be searched
- * Return: NULL or pointer to value
+ * jump_list - Searches for an algorithm in a sorted singly
+ *             linked list of integers using jump search.
+ * @list: A pointer to the  head of the linked list to search.
+ * @size: The number of nodes in the list.
+ * @value: The value to search for.
+ *
+ * Return: If the value is not present or the head of the list is NULL, NULL.
+ *         Otherwise, a pointer to the first node where the value is located.
+ *
+ * Description: Prints a value every time it is compared in the list.
+ *              Uses the square root of the list size as the jump step.
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t sq = sqrt(size);
-	size_t j = 0;
-	listint_t *mid = list, *tmp, *beg = list;
-	size_t end = size - 1;
+	size_t step, step_size;
+	listint_t *node, *jump;
 
-
-	if (list == NULL)
+	if (list == NULL || size == 0)
 		return (NULL);
 
-	if (list->n == value)
-		return (lin(mid, end, value));
-	while (mid->index != sq)
-		mid = mid->next;
-
-
-	while (j < end)
+	step = 0;
+	step_size = sqrt(size);
+	for (node = jump = list; jump->index + 1 < size && jump->n < value;)
 	{
-		printf("Value checked at index [%ld] = [%d]\n", mid->index, mid->n);
-
-		if (mid->n < value)
+		node = jump;
+		for (step += step_size; jump->index < step; jump = jump->next)
 		{
-			beg = mid;
-			j = mid->index;
-			tmp = mid;
-			while (mid->index < (j + sq))
-			{
-				if (mid->next != NULL)
-					mid = mid->next;
-				else if (mid->next == NULL)
-				{
-					printf("Value checked at index [%ld] = [%d]\n", end, mid->n);
-					mid = tmp;
-					printf("Value found between indexes [%ld] and [%ld]\n", beg->index, end);
-					return (lin(mid, end, value));
-				}
-			}
+			if (jump->index + 1 == size)
+				break;
 		}
-		else if (mid->n > value)
-		{
-			end = mid->index;
-			printf("Value found between indexes [%ld] and [%ld]\n", beg->index, end);
-			return (lin(beg, end, value));
-		}
-		else
-			mid = mid->next;
+		printf("Value checked at index [%ld] = [%d]\n", jump->index, jump->n);
 	}
-	return (lin(mid, end, value));
-}
-/**
- * lin - entry
- * @mid: pointer to jump
- * @end: end of list
- * @value: value to be found
- * Return: null or pointer to value
- */
-listint_t *lin(listint_t *mid, size_t end, int value)
-{
-	while (mid->index <= end)
-	{
 
-		printf("Value checked at index [%ld] = [%d]\n", mid->index, mid->n);
+	printf("Value found between indexes [%ld] and [%ld]\n",
+			node->index, jump->index);
 
-		if (mid->n == value)
-		{
-			return (mid);
-		}
-		else if (mid->next == NULL)
-			return (NULL);
-		mid = mid->next;
-	}
-	return (NULL);
+	for (; node->index < jump->index && node->n < value; node = node->next)
+		printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+	printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+
+	return (node->n == value ? node : NULL);
 }
